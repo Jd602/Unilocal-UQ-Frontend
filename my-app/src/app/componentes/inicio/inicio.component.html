@@ -1,4 +1,4 @@
-<router-outlet></router-outlet>
+
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -6,7 +6,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
             <div class="sidebar-brand-icon ">
                 <i class="fas fa-luggage-cart"></i>
             </div>
@@ -18,7 +18,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#politicsModal">
+            <a class="nav-link" href="#" (click)="abrirModal()">
                 <i class="fas fa-scroll"></i>
                 <span>Políticas y condiciones</span></a>
         </li>
@@ -33,7 +33,6 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <!--INGRESAR AQUÍ LOS CAMBIOS DEL DASHBOARD-->
             <a class="nav-link" href="/login">
                 <i class="fas fa-map-marked-alt"></i>
                 <span>Ingresar a mi cuenta</span>
@@ -47,12 +46,12 @@
                 <span>Recuperar contraseña</span>
             </a>
         </li>
-        
+
         <!-- Divider -->
         <hr class="sidebar-divider">
 
         <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#unilocalModal">
+            <a class="nav-link" href="#" (click)="abrirModal()">
                 <i class="fas fa-info-circle"></i>
                 <span>Acerca de UniLocal</span>
             </a>
@@ -89,13 +88,11 @@
                         <option value="negocio">Filtrar por negocio</option>
                         <option value="tipo">Filtrar por tipo de negocio</option>
                         <option value="distancia">Filtrar por distancia</option>
-                        
                     </select>
                 </div>
                 
                 <!-- Topbar Search -->
-                <form
-                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar"
                             aria-label="Search" aria-describedby="basic-addon2">
@@ -140,11 +137,8 @@
                         <a class="nav-link dropdown-toggle" href="/login" 
                              aria-haspopup="false" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Iniciar sesión</span>
-                            <img class="img-profile rounded-circle"
-                                src="../my-app/src/assets/images/user-solid.svg">
+                            <img class="img-profile rounded-circle" src="../my-app/src/assets/images/user-solid.svg">
                         </a>
-                        <!-- Dropdown - User Information -->
-                        
                     </li>
 
                 </ul>
@@ -155,40 +149,10 @@
             <!-- AQUÍ VA EL CONTENIDO PROPIO DE LA PÁGINA -->
             <div class="container-fluid">
 
-                <div id="div-principal" >
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15768.283021607443!2d-75.69180952431152!3d4.534578143133677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e409f17999b16b3%3A0x6443fb83549a3b15!2sArmenia%2C%20Quind%C3%ADo%2C%20Colombia!5e0!3m2!1sen!2sus!4v1646487382157!5m2!1sen!2sus" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    <!--AQUÍ SE AGREGA EL CARD-->
-                <div class="card " style="width: 20vw; height:15vw; opacity:0.75;position:absolute; bottom: 100px;; right:0;">
-                    <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary">Negocios recomendados</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive"  style="height:100%">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
-                                <thead>
-                                    <tr>
-                                        <th>Negocio</th>
-                                        <th>Distancia</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Hotel Mocawa</td>
-                                        <td>1 km</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bar Igneos</td>
-                                        <td>2 km</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Spa Luxury</td>
-                                        <td>2 km</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    <!--AQUÍ TERMINA EL CARD-->
+                <div id="div-principal">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15768.283021607443!2d-75.69180952431152!3d4.534578143133677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e409f17999b16b3%3A0x6443ad5f478a11a0!2sEl%20Ed%C3%A9n%2C%20Armenia%2C%20Quind%C3%ADo!5e0!3m2!1ses!2sco!4v1670385269387!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
+
             </div>
             <!-- /.container-fluid -->
 
@@ -199,7 +163,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; UniLocal by Saraza, Gasser & Marín 2024</span>
+                    <span>Copyright &copy; UniLocal 2022</span>
                 </div>
             </div>
         </footer>
@@ -211,99 +175,7 @@
 </div>
 <!-- End of Page Wrapper -->
 
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¿Cerrar sesión?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">¿Deseas cerrar sesión y no consultar más en este momento?</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-primary" href="/login">Salir</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Políticas /JD-->
-<div class="modal fade" id="politicsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Políticas y condiciones UniLocal</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Las siguientes son las políticas para el uso de nuestros servicios:<br><br>
-                <ul>
-                    <li>El usuario final para interactuar con los negocios o hacer comentarios debe estar registrado.</li>
-                    <li>El usuario final para interactuar con los negocios o hacer comentarios debe estar registrado.</li>
-                    <li>Para realizar el registro el usuario debe contar con los datos requeridos (cédula, nombre, fecha de nacimiento, entre otros).</li>
-                    <li>Por cada correo solo se puede registrar un usuario.</li>
-                    <li>Para registrar un negocio el usuario ya deberá contar con una cuenta registrada.</li>
-                    <li>Para el registro es obligatorio suministrar toda la información requerida en el formulario.</li>
-                    <li>Todo usuario deberá tener respeto para el uso de la plataforma, el no cumplimiento de esto genera 
-                        sanciones como suspensión temporal o la eliminación de la cuenta, esto ya será de manejo del moderador 
-                        que maneje el caso.</li>
-                    <li>Para resolver dudas puede contactar al correo correo&#64;email.com</li>
-                </ul>
-        </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Aceptar</button>
-                <!-- <a class="btn btn-primary" href="login.html">Salir</a> -->
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Unilocal Modal-->
-<div class="modal fade" id="unilocalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">UniLocal 2024</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Unilocal es es una plataforma que incentiva el comercio y la gastronomía regional, donde se busca apoyar a los pequeños comerciantes.<br><br>
-            Desarrollada por Juan David Saraza, Gasser Abdeslam Abdelgelil & Santiago Marín.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">OK</button>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
-
-<!-- Page level plugins -->
-<script src="vendor/chart.js/Chart.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="js/demo/chart-area-demo.js"></script>
-<script src="js/demo/chart-pie-demo.js"></script> 
+<app-modal-politicas></app-modal-politicas>
+<!-- <app-modal-salir></app-modal-salir>
+<app-modal-acerca></app-modal-acerca> -->
 

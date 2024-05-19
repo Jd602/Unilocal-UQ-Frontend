@@ -11,6 +11,11 @@ import { OlvidarPasswordComponent } from '../olvidar-password/olvidar-password.c
   styleUrl: './registro.component.css'
 })
 export class RegistroComponent {
-
-}
+  /* registroClienteDTO: RegistroClienteDTO;
+ constructor() {
+ this.registroClienteDTO = new RegistroClienteDTO();
+ }  */
  
+}
+
+

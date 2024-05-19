@@ -1,18 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { RegistroComponent } from '../registro/registro.component';
+import { ModalPoliticasComponent } from '../modal-politicas/modal-politicas.component';
+
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [RouterOutlet,LoginComponent,RegistroComponent],
+  imports: [CommonModule, RouterOutlet, LoginComponent, RegistroComponent, ModalPoliticasComponent],
   templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.css'
+  styleUrls: ['./inicio.component.css']
 })
-export class InicioComponent {
+export class InicioComponent implements AfterViewInit {
+  @ViewChild(ModalPoliticasComponent) modal!: ModalPoliticasComponent;
 
+  ngAfterViewInit() {}
 
-
+  abrirModal() {
+    this.modal.openModal();
+  }
 }
- 
