@@ -6,6 +6,7 @@ import { OlvidarPasswordComponent } from './componentes/olvidar-password/olvidar
 import { IndexUsuarioComponent } from './componentes/index-usuario/index-usuario.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { MisFavoritosComponent } from './componentes/mis-favoritos/mis-favoritos.component';
+import { MisNegociosComponent } from './componentes/mis-negocios/mis-negocios.component';
 import { N404Component } from './componentes/404/404.component';
 
 export const routes: Routes = [
@@ -15,6 +16,7 @@ export const routes: Routes = [
 { path: 'olvidar-password', component: OlvidarPasswordComponent},
 { path: 'index-usuario', component: IndexUsuarioComponent},
 { path: 'perfil', component: PerfilComponent},
-{ path: 'mis-favoritos', component: MisFavoritosComponent}
+{ path: 'mis-favoritos', component: MisFavoritosComponent},
+{ path: 'mis-negocios', component: MisNegociosComponent}
 /* { path: "**", component: N404Component } */
 ];

@@ -1,93 +1,81 @@
-<body class="bg-gradient-primary">
-<div class="container">
-
+<body class="bg-gradient-primary" style="min-height: 100vh; display:flex">
+  <div class="container">
     <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                <div class="col-lg-7">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h1 class="h2 text-gray-900 mb-4">Crear cuenta nueva</h1>
-                        </div>
-                        <form class="user">
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                        placeholder="Nombre completo">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                        placeholder="Nickname">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                    placeholder="Correo electrónico">
-                            </div>
-
-                            <div class="form-group">
-                                <select class="form-control form-control-user" id="ciudad">
-                                    <option value="" disabled selected>Seleccionar la ciudad</option>
-                                    <option value=1>Armenia</option>
-                                    <option value=2>Bogotá</option>
-                                    <option value=3>Cali</option>
-                                    <option value=4>Medellin</option>
-                                </select>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0" id="datepicker">
-                                    <input type="date" class="form-control form-control-user" id="datepickerInput" placeholder="Fecha de nacimiento">
-                                    <span class="glyph">
-                                        <i class="glyphicon glyphicon-calendar"></i>
-                                    </span>
-                                </div>
-                                <div class="col-sm-6 mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="cargarImagen">
-                                        <label class="custom-file-label" for="cargarImagen">Seleccionar imagen</label>
-                                    </div>
-                                </div>    
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password" class="form-control form-control-user"
-                                        id="exampleInputPassword" placeholder="Password">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="password" class="form-control form-control-user"
-                                        id="exampleRepeatPassword" placeholder="Confirmar password">
-                                </div>
-                            </div>
-
-                            <a href="/login" class="btn btn-primary btn-user btn-block">
-                                Crear cuenta
-                            </a>
-                        </form>
-                        <hr>
-                        <div class="text-center">
-                            <a class="small" href="/olvidar-password">Olvidé mi password</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="small" href="/login">Ya tengo una cuenta. Ingresar</a>
-                        </div>
-                    </div>
+      <div class="card-body p-0">
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h2 text-gray-900 mb-4">Crear cuenta nueva</h1>
+              </div>
+              <form class="user" #f="ngForm" (ngSubmit)="registrar()">
+                <div class="form-group row">
+                  <!-- NOMBRE COMPLETO -->
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" placeholder="Nombre completo" name="nombre" [(ngModel)]="registroClienteDTO.nombre" required />
+                  </div>
+                  <!-- NICKNAME -->
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control form-control-user" placeholder="Ingrese su nickname" name="nickname" [(ngModel)]="registroClienteDTO.nickname" required />
+                  </div>
                 </div>
+                <!-- EMAIL -->
+                <div class="form-group">
+                  <input type="email" class="form-control form-control-user" placeholder="Ingrese su email" name="email" [(ngModel)]="registroClienteDTO.email" required />
+                </div>
+                <!-- SELECT DE CIUDADES -->
+                <div class="form-group">
+                  <select name="ciudadResidencia" class="form-control form-control-user" placeholder="Seleccionar" required [(ngModel)]="registroClienteDTO.ciudadResidencia">
+                    <option value="" selected>Seleccione una ciudad</option>
+                    <option value="Armenia">Armenia</option>
+                    <option value="Calarcá">Calarcá</option>
+                    <option value="Pereira">Pereira</option>
+                    <option value="Manizales">Manizales</option>
+                    <option value="Medellín">Medellín</option>
+                  </select>
+                </div>
+                <!-- FECHA DE NACIMIENTO -->
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="date" class="form-control form-control-user" name="fechaNacimiento" [(ngModel)]="registroClienteDTO.fechaNacimiento" required />
+                    <!-- SE USA UN LABEL PERSONALIZADO PARA DAR LA APARIENCIA DEL CAMPO DE FECHA -->
+                    <!-- <label class="custom-file-label" for="cargarFecha">Ingrese su fecha de nacimiento</label> -->
+                  </div>
+                  <!-- CARGA DE IMÁGENES -->
+                  <div class="col-sm-6 mb-3">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" name="fotoPerfil" [(ngModel)]="registroClienteDTO.fotoPerfil" required />
+                      <label class="custom-file-label" for="cargarImagen">Seleccionar imagen</label>
+                    </div>
+                  </div>
+                </div>
+                <!-- PASSWORD -->
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="password" class="form-control form-control-user" placeholder="Ingrese la contraseña a usar" name="password" [(ngModel)]="registroClienteDTO.password" required />
+                  </div>
+                  <!-- CONFIRMAR PASSWORD -->
+                  <div class="col-sm-6">
+                    <input type="password" class="form-control form-control-user" placeholder="Confirme la contraseña" name="confirmarPassword" [(ngModel)]="registroClienteDTO.confirmarPassword" required />
+                  </div>
+                </div>
+                <!-- MENSAJE DE ERROR -->
+                <p *ngIf="!sonIguales()">Las contraseñas no coinciden</p>
+                <!-- BOTÓN DE SUBMIT -->
+                <button type="submit" class="btn btn-primary btn-user btn-block" [disabled]="f.invalid || !sonIguales()">Crear cuenta</button>
+              </form>
+              <hr>
+              <div class="text-center">
+                <a class="small" href="/olvidar-password">Olvidé mi password</a>
+              </div>
+              <div class="text-center">
+                <a class="small" href="/login">Ya tengo una cuenta. Ingresar</a>
+              </div>
             </div>
+          </div>
         </div>
-    </div> 
-</div>
-
-<script>
-    $(function () {
-        $('#datepickerInput').datepicker({
-            dateFormat: 'dd-mm-yy'
-        });
-    });
-</script>
-<script>
-
-</script>
-<router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 </body>
