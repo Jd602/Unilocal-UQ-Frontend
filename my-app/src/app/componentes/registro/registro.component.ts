@@ -9,6 +9,7 @@ import { AlertaComponent } from '../alerta/alerta.component';
 import { Alerta } from '../../dto/alerta';
 
 import { RegistroClienteDTO } from '../../dto/registro-cliente-dto';
+import { UserService } from '../../servicios/controllers/user.service';
 
 @Component({
   selector: 'app-registro',
@@ -24,7 +25,7 @@ export class RegistroComponent {
   archivos!:FileList;
   alerta!:Alerta;
 
-  constructor(/* private publicoService: PublicoService, private authService: AuthService */) {
+  constructor(private userService:UserService) {
   this.registroClienteDTO = new RegistroClienteDTO();
   this.ciudades = [];
   /* this.cargarCiudades(); */
@@ -33,13 +34,14 @@ export class RegistroComponent {
 
   public registrar() {
 
-    console.log("Creado");
+    console.log("Ingresa a registro");
     console.log(this.registroClienteDTO.email);
 
-    /* if (this.registroClienteDTO.fotoPerfil != "") {
-      this.authService.registrarCliente(this.registroClienteDTO).subscribe({
+    if (this.registroClienteDTO.fotoPerfil != "") {
+      this.userService.registerUser(this.registroClienteDTO).subscribe({
       next: (data) => {
       this.alerta = new Alerta(data.respuesta, "success");
+      console.log("Registro exitoso",data)
       },
       error: (error) => {
       this.alerta = new Alerta(error.error.respuesta, "danger");
@@ -47,33 +49,25 @@ export class RegistroComponent {
       });
       } else {
       this.alerta = new Alerta("Debe subir una imagen", "danger");
-      } */
+      }
     }
     public sonIguales(): boolean {
       return this.registroClienteDTO.password == this.registroClienteDTO.confirmarPassword;
     }
 
-    /* private cargarCiudades() {
-      this.publicoService.listarCiudades().subscribe({
-      next: (data) => {
-      this.ciudades = data.respuesta;
-      },
-      error: (error) => {
-      console.log("Error al cargar las ciudades");
-      }
-      }); */
+    
 
-      /* public onFileChange(event: any) {
+      public onFileChange(event: any) {
           if (event.target.files.length > 0) {
             this.archivos = event.target.files;
             this.registroClienteDTO.fotoPerfil = this.archivos[0].name;
           }
-        } */
+        }
 
 
 
       }
-    //}
+    
   
     
 

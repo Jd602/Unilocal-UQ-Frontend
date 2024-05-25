@@ -45,7 +45,8 @@
                   <!-- CARGA DE IMÁGENES -->
                   <div class="col-sm-6 mb-3">
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" name="fotoPerfil" [(ngModel)]="registroClienteDTO.fotoPerfil" required />
+                      <!-- <input type="file" class="custom-file-input" name="fotoPerfil" [(ngModel)]="registroClienteDTO.fotoPerfil" required /> -->
+                      <input type="file" class="custom-file-input" name="fotoPerfil" (change)="onFileChange($event)" required />
                       <label class="custom-file-label" for="cargarImagen">Seleccionar imagen</label>
                     </div>
                   </div>
